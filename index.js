@@ -5,7 +5,10 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 
 const app = express();
-app.use(cors()); // Open CORS for dev
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+})); // Open CORS for dev
 app.use(express.json());
 
 app.use('/auth', authRoutes);
